@@ -26,7 +26,7 @@ jobs:
 
     steps:
     - name: Deploy signed
-      uses: bernardo-mg/maven-site-deployment-action@v1
+      uses: bernardo-mg/maven-signed-deployment-action@v1
       with:
         username: ${{ secrets.username }}
         password: ${{ secrets.password }}
@@ -52,6 +52,6 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 ## License
 The project has been released under the [MIT License][license].
 
-[issues]: https://github.com/Bernardo-MG/maven-site-deployment-action/issues
+[issues]: https://github.com/Bernardo-MG/maven-signed-deployment-action/issues
 [license]: https://www.opensource.org/licenses/mit-license.php
-[scm]: https://github.com/Bernardo-MG/maven-site-deployment-action
+[scm]: https://github.com/Bernardo-MG/maven-signed-deployment-action
