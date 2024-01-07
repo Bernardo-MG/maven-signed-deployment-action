@@ -28,10 +28,10 @@ jobs:
     - name: Deploy signed
       uses: bernardo-mg/maven-signed-deployment-action@v1
       with:
-        username: ${{ secrets.username }}
-        password: ${{ secrets.password }}
-        gpg-private-key: ${{ secrets.gpg-private-key }}
-        gpg-passphrase: ${{ secrets.gpg-passphrase }}
+        username: ${{ secrets.OSSRH_USERNAME }}
+        password: ${{ secrets.OSSRH_TOKEN }}
+        gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+        gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
 ```
 
 ## Collaborate
