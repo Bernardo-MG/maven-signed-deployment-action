@@ -1,4 +1,4 @@
-# Maven Signed Deployment Action
+# Maven Signed Artifact Deployment Action
 
 Builds, signs and deploys Maven artifacts.
 

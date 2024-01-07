@@ -1,4 +1,4 @@
-name: 'Signed artifact deployment'
+name: 'Maven signed artifact deployment'
 description: 'Sign and deploy Maven artifacts'
 author: 'Bernardo Mart�nez Garrido'
 branding:
