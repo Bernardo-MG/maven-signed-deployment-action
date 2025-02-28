@@ -12,7 +12,7 @@ Builds, signs and deploys Maven artifacts.
 | gpg-passphrase  | Passphrase for signing.                                                 | True                                  |
 | repository      | Maven repository (distribution management) for deploying the artifacts. | False, defaults to 'ossrh'            |
 | profile         | Maven profile for site deployment.                                      | False, defaults to 'deployment-ossrh' |
-| jdk             | JDK version to use.                                                     | False, defaults to '11'               |
+| jdk             | JDK version to use.                                                     | False, defaults to '17'               |
 
 ## Usage
 
