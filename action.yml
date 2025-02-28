@@ -27,7 +27,7 @@ inputs:
     required: false
   jdk:
     description: 'JDK version to use'
-    default: '11'
+    default: '17'
     required: false
 runs:
     using: 'composite'
