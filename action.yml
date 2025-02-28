@@ -45,8 +45,6 @@ runs:
         server-id: ${{ inputs.repository }}
         server-username: MAVEN_USERNAME
         server-password: MAVEN_PASSWORD
-        gpg-private-key: ${{ inputs.gpg-private-key }}
-        gpg-passphrase: MAVEN_GPG_PASSPHRASE
     - name: Package
       run: mvn clean package -B -P ${{ inputs.profile }} -DskipTests
       shell: bash
@@ -57,3 +55,4 @@ runs:
         MAVEN_USERNAME: ${{ inputs.username }}
         MAVEN_PASSWORD: ${{ inputs.password }}
         MAVEN_GPG_PASSPHRASE: ${{ inputs.gpg-passphrase }}
+        MAVEN_GPG_KEY: ${{ inputs.gpg-private-key }}
