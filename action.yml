@@ -46,9 +46,6 @@ runs:
         server-username: MAVEN_USERNAME
         server-password: MAVEN_PASSWORD
         gpg-private-key: ${{ inputs.gpg-private-key }}
-    - name: Package
-      run: mvn clean package -B -P ${{ inputs.profile }} -DskipTests
-      shell: bash
     - name: Deploy
       run: mvn deploy -B -P ${{ inputs.profile }} -DskipTests
       shell: bash
