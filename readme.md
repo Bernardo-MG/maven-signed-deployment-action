@@ -4,15 +4,15 @@ Builds, signs and deploys Maven artifacts.
 
 ## Inputs
 
-| Input           | Description                                                             | Required                              |
-|-----------------|-------------------------------------------------------------------------|---------------------------------------|
-| username        | Username for the deployment server.                                     | True                                  |
-| password        | Password for the deployment server.                                     | True                                  |
-| gpg-private-key | Private key for signing.                                                | True                                  |
-| gpg-passphrase  | Passphrase for signing.                                                 | True                                  |
-| repository      | Maven repository (distribution management) for deploying the artifacts. | False, defaults to 'ossrh'            |
-| profile         | Maven profile for site deployment.                                      | False, defaults to 'deployment-ossrh' |
-| jdk             | JDK version to use.                                                     | False, defaults to '17'               |
+| Input           | Description                                                             | Required                                |
+|-----------------|-------------------------------------------------------------------------|-----------------------------------------|
+| username        | Username for the deployment server.                                     | True                                    |
+| password        | Password for the deployment server.                                     | True                                    |
+| gpg-private-key | Private key for signing.                                                | True                                    |
+| gpg-passphrase  | Passphrase for signing.                                                 | True                                    |
+| repository      | Maven repository (distribution management) for deploying the artifacts. | False, defaults to 'central'            |
+| profile         | Maven profile for site deployment.                                      | False, defaults to 'deployment-central' |
+| jdk             | JDK version to use.                                                     | False, defaults to '17'                 |
 
 ## Usage
 
@@ -28,8 +28,8 @@ jobs:
     - name: Deploy signed
       uses: bernardo-mg/maven-signed-deployment-action@v1
       with:
-        username: ${{ secrets.OSSRH_USERNAME }}
-        password: ${{ secrets.OSSRH_TOKEN }}
+        username: ${{ secrets.CENTRAL_USERNAME }}
+        password: ${{ secrets.CENTRAL_TOKEN }}
         gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
         gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
 ```
