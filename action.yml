@@ -29,6 +29,10 @@ inputs:
     description: 'JDK version to use'
     default: '17'
     required: false
+  maven-version:
+    description: 'Maven version; empty uses the runner default'
+    required: false
+    default: ''
 runs:
     using: 'composite'
     steps:
@@ -47,6 +51,21 @@ runs:
         server-password: MAVEN_PASSWORD
         gpg-passphrase: MAVEN_GPG_PASSPHRASE
         gpg-private-key: ${{ inputs.gpg-private-key }}
+    - name: Set up Maven ${{ inputs.maven-version }}
+      if: ${{ inputs.maven-version != '' }}
+      shell: bash
+      env:
+        MAVEN_VERSION: ${{ inputs.maven-version }}
+      run: |
+        [[ "$MAVEN_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+        curl --fail --silent --show-error --location \
+          "https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz" \
+          --output "$RUNNER_TEMP/maven.tar.gz"
+        tar -xzf "$RUNNER_TEMP/maven.tar.gz" -C "$RUNNER_TEMP"
+        echo "$RUNNER_TEMP/apache-maven-$MAVEN_VERSION/bin" >> "$GITHUB_PATH"
+    - name: Check Maven version
+      shell: bash
+      run: mvn --version
     - name: Deploy
       run: mvn deploy -B -P ${{ inputs.profile }} -DskipTests
       shell: bash
